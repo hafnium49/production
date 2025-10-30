@@ -1,0 +1,26 @@
+{
+  "name": "production",
+  "version": "1.0.0",
+  "description": "![Course Image](assets/course.png)",
+  "main": "index.js",
+  "scripts": {
+    "vercel": "vercel",
+    "deploy": "cd week1/instant && vercel",
+    "deploy:prod": "cd week1/instant && vercel --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hafnium49/production.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hafnium49/production/issues"
+  },
+  "homepage": "https://github.com/hafnium49/production#readme",
+  "dependencies": {
+    "vercel": "^48.7.0"
+  }
+}

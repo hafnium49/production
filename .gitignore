@@ -175,6 +175,13 @@ cython_debug/
 
 .DS_Store
 
+# Node.js
+node_modules/
+package-lock.json
+
+# Vercel
+.vercel
+
 finale/.bedrock_agentcore.yaml
 finale/Dockerfile
 finale/.dockerignore
