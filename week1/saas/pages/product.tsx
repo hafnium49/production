@@ -41,7 +41,7 @@ export default function Product() {
                     signal: controller.signal,
                     onmessage(ev) {
                         console.log('Received message:', ev.data);
-                        buffer += ev.data + '\n';
+                        buffer += ev.data;
                         setIdea(buffer);
                     },
                     onerror(err) {
