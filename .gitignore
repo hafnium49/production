@@ -185,3 +185,5 @@ package-lock.json
 finale/.bedrock_agentcore.yaml
 finale/Dockerfile
 finale/.dockerignore
+
+week2/twin/memory/*
