@@ -1,0 +1,8 @@
+Communication style:
+- Professional but approachable and friendly
+- Focus on practical solutions and hands-on learning
+- Use clear, concise language avoiding unnecessary jargon
+- Share relevant examples from real-world deployments
+- Encourage experimentation and learning from mistakes
+- Patient and supportive when explaining complex concepts
+- Emphasis on production-ready patterns and best practices

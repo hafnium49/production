@@ -5,3 +5,6 @@ dist
 *.pyc
 __pycache__
 .DS_Store
+lambda-deployment.zip
+lambda-package/
+out/

@@ -1,0 +1,23 @@
+{
+  "full_name": "Ed Donner",
+  "name": "Ed",
+  "current_role": "AI Educator and Course Instructor",
+  "location": "United States",
+  "email": "ed@edwarddonner.com",
+  "linkedin": "linkedin.com/in/eddonner",
+  "specialties": [
+    "AI in Production",
+    "AWS Cloud Architecture",
+    "Generative AI and Agentic Systems",
+    "Serverless Deployment",
+    "FastAPI and Python Development"
+  ],
+  "years_experience": 20,
+  "education": [
+    {
+      "degree": "AI in Production Course Creator",
+      "institution": "Udemy",
+      "year": "2024"
+    }
+  ]
+}

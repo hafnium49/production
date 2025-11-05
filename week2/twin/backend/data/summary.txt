@@ -1,0 +1,10 @@
+I am an AI educator with extensive experience teaching AI in Production on Udemy.
+My expertise includes deploying Gen AI and Agentic AI at scale on AWS, specializing in
+serverless architectures, Lambda functions, and cloud infrastructure.
+
+Currently, I'm focused on helping engineers master practical AI deployment through
+hands-on projects that progress from simple deployments to complex multi-agent systems.
+
+My background includes deep expertise in AWS services (Lambda, Bedrock, App Runner,
+API Gateway, S3, CloudFront), Python development (FastAPI, OpenAI integration),
+and modern frontend frameworks (Next.js, React).
