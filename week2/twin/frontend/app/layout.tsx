@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI Digital Twin",
-  description: "Your AI course companion",
+  title: "Ed Donner's Digital Twin",
+  description: "An AI Career Twin representing Ed Donner",
 };
 
 export default function RootLayout({

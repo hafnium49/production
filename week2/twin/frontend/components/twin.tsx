@@ -16,6 +16,8 @@ export default function Twin() {
     const [isLoading, setIsLoading] = useState(false);
     const [sessionId, setSessionId] = useState<string>('');
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+    const [hasAvatar, setHasAvatar] = useState(false);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -24,6 +26,12 @@ export default function Twin() {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    useEffect(() => {
+        fetch('/avatar.png', { method: 'HEAD' })
+            .then(res => setHasAvatar(res.ok))
+            .catch(() => setHasAvatar(false));
+    }, []);
 
     const sendMessage = async () => {
         if (!input.trim() || isLoading) return;
@@ -79,6 +87,10 @@ export default function Twin() {
             setMessages(prev => [...prev, errorMessage]);
         } finally {
             setIsLoading(false);
+            // Refocus the input after message is sent
+            setTimeout(() => {
+                inputRef.current?.focus();
+            }, 100);
         }
     };
 
@@ -119,9 +131,13 @@ export default function Twin() {
                     >
                         {message.role === 'assistant' && (
                             <div className="flex-shrink-0">
-                                <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
-                                    <Bot className="w-5 h-5 text-white" />
-                                </div>
+                                {hasAvatar ? (
+                                    <img src="/avatar.png" alt="AI Twin" className="w-8 h-8 rounded-full" />
+                                ) : (
+                                    <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
+                                        <Bot className="w-5 h-5 text-white" />
+                                    </div>
+                                )}
                             </div>
                         )}
 
@@ -155,9 +171,13 @@ export default function Twin() {
                 {isLoading && (
                     <div className="flex gap-3 justify-start">
                         <div className="flex-shrink-0">
-                            <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
-                                <Bot className="w-5 h-5 text-white" />
-                            </div>
+                            {hasAvatar ? (
+                                <img src="/avatar.png" alt="AI Twin" className="w-8 h-8 rounded-full" />
+                            ) : (
+                                <div className="w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
+                                    <Bot className="w-5 h-5 text-white" />
+                                </div>
+                            )}
                         </div>
                         <div className="bg-white border border-gray-200 rounded-lg p-3">
                             <div className="flex space-x-2">
@@ -176,6 +196,7 @@ export default function Twin() {
             <div className="border-t border-gray-200 p-4 bg-white rounded-b-lg">
                 <div className="flex gap-2">
                     <input
+                        ref={inputRef}
                         type="text"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
