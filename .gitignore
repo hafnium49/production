@@ -187,10 +187,8 @@ finale/Dockerfile
 finale/.dockerignore
 
 week2/twin/memory/*
-week2/twin/backend/lambda-package-old/*
 week2/twin/backend/lambda-package/*
-week2/twin/backend/lambda-package-backup/*
-week2/twin/backend/lambda-package-backup2/*
+week2/twin/backend/lambda-package-*/*
 
 # Terraform
 *.tfstate
