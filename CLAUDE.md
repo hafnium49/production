@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the **AI in Production** course repository - a comprehensive educational course on deploying Gen AI and Agentic AI at scale. The repository contains hands-on projects that progress from simple deployment to complex multi-agent systems on AWS.
 
+**Default AWS Region**: `ap-northeast-1` (Tokyo) - All AWS services and deployments in this repository use this region by default.
+
 ## Repository Structure
 
 The repository is organized into weekly modules with companion guides:
