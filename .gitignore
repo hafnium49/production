@@ -191,3 +191,28 @@ week2/twin/backend/lambda-package-old/*
 week2/twin/backend/lambda-package/*
 week2/twin/backend/lambda-package-backup/*
 week2/twin/backend/lambda-package-backup2/*
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate.d/
+*.tfvars
+!terraform.tfvars
+!prod.tfvars
+
+# Lambda packages
+lambda-deployment.zip
+
+# Environment files
+.env.*
+
+# Next.js
+out/
+.next/
+
+# IDE
+.vscode/
+.idea/
+*.swp
