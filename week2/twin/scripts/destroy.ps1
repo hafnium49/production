@@ -16,6 +16,16 @@ Write-Host "Preparing to destroy $ProjectName-$Environment infrastructure..." -F
 # Navigate to terraform directory
 Set-Location (Join-Path (Split-Path $PSScriptRoot -Parent) "terraform")
 
+# Initialize with S3 backend
+$awsAccountId = aws sts get-caller-identity --query Account --output text
+$awsRegion = if ($env:DEFAULT_AWS_REGION) { $env:DEFAULT_AWS_REGION } else { "ap-northeast-1" }
+terraform init -input=false `
+  -backend-config="bucket=twin-terraform-state-$awsAccountId" `
+  -backend-config="key=$Environment/terraform.tfstate" `
+  -backend-config="region=$awsRegion" `
+  -backend-config="dynamodb_table=twin-terraform-locks" `
+  -backend-config="encrypt=true"
+
 # Check if workspace exists
 $workspaces = terraform workspace list
 if (-not ($workspaces | Select-String $Environment)) {
@@ -56,6 +66,12 @@ try {
 }
 
 Write-Host "Running terraform destroy..." -ForegroundColor Yellow
+
+# Create dummy lambda zip if it doesn't exist (needed for destroy in GitHub Actions)
+if (-not (Test-Path "../backend/lambda-deployment.zip")) {
+    Write-Host "Creating dummy lambda package for destroy operation..." -ForegroundColor Gray
+    "dummy" | Compress-Archive -DestinationPath "../backend/lambda-deployment.zip"
+}
 
 # Run terraform destroy with auto-approve
 if ($Environment -eq "prod" -and (Test-Path "prod.tfvars")) {
