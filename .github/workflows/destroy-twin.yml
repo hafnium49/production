@@ -31,6 +31,7 @@ jobs:
 
     steps:
       - name: Verify Confirmation
+        working-directory: .
         run: |
           if [ "${{ github.event.inputs.confirm }}" != "${{ github.event.inputs.environment }}" ]; then
             echo "❌ Error: Confirmation does not match environment name"
